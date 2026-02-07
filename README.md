@@ -1,27 +1,30 @@
-# Authentication Service
+# Authentication Service (Node.js)
 
-A lightweight authentication service built using Node.js and Express.
+This project is a lightweight authentication service built using Node.js and Express.  
+It acts as a proxy layer to validate requests before allowing access to protected APIs.
 
 ## Features
-- Accepts incoming HTTP requests
-- Validates Bearer token authentication
-- Returns 401 for unauthorized requests
-- Allows authorized requests to access protected routes
-- Stateless and middleware-based design
+- JWT-based authentication
+- Stateless service design
+- API rate limiting
+- Middleware-based request validation
 
-## Setup
-1. Install dependencies:
-   npm install
+## Tech Stack
+- Node.js
+- Express
+- JSON Web Tokens (JWT)
+- express-rate-limit
+- dotenv
 
-2. Start the server:
-   node src/index.js
+## API Endpoints
 
-Server runs on:
-http://localhost:3000
+### POST /login
+Generates a JWT token for the client.
 
-## Example
-Unauthorized request:
-GET /api/posts → 401 Unauthorized
+### GET /api/posts
+Protected route that requires a valid Bearer token.
 
-Authorized request:
-Authorization: Bearer mysecrettoken → 200 OK
+## Setup Instructions
+
+```bash
+npm install
